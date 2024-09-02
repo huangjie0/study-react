@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .title{
+            background-color: orange;
+            width: 220px;
+        }
+    </style>
 </head>
 <body>
     <!-- 准备好一个容器 -->
-    <div id="test">
-    </div>
+    <div id="test"></div>
     <!-- 引入核心库 -->
     <script src="../js/react.development.js"></script>
     <!-- 引入react_dom库,用于支持操作dom -->
@@ -18,8 +23,18 @@
     <script src="../js/babel.min.js"></script>
 
     <script type="text/babel">
+        const myId = 'myId'
+        const myData = 'hello,react!!!'
         //创建虚拟dom
-        const VDOM = <h1>Hello,React</h1>
+        const VDOM = (
+            <div>
+                <h1 id={myId.toLowerCase()} className="title" style={{color:'white'}}>
+                    <span>{ myData.toLowerCase() }</span>
+                </h1>
+                <input type="text"></input>
+            </div>
+        )
+
         //渲染虚拟dom到页面
         ReactDOM.render(VDOM,document.getElementById('test'))
     </script>
