@@ -7,20 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- 准备好一个容器 -->
-    <div id="test">
-    </div>
-    <!-- 引入核心库 -->
+    <div id="test"></div>
     <script src="../js/react.development.js"></script>
-    <!-- 引入react_dom库,用于支持操作dom -->
     <script src="../js/react-dom.development.js"></script>
-    <!-- 将jsx转为js -->
-    <script src="../js/babel.min.js"></script>
-
-    <script type="text/babel">
-        //创建虚拟dom
-        const VDOM = <h1>Hello,React</h1>
-        //渲染虚拟dom到页面
+    <script type="text/javascript"> 
+        const VDOM = React.createElement('h1',{id:'title'},'hello~')
         ReactDOM.render(VDOM,document.getElementById('test'))
     </script>
 </body>
