@@ -22,6 +22,24 @@
         p.speak()
         console.log(p);
 
+        class Student extends Person{
+            constructor(name,age,grade){
+                super(name,age)
+                this.grade = grade
+            }
+            speak(){
+                console.log(`我叫${this.name} , 年龄是${this.age},年级是${this.grade}`);
+            }
+            study(){
+                console.log('努力学习！！！！！');
+            }
+        }
+
+        const s1 = new Student('jurrey',20,'高一')
+        console.log(s1);
+        s1.speak()
+        s1.study()
+
     </script>
     
 </body>
