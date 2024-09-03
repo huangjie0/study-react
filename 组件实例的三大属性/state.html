@@ -24,11 +24,17 @@
                     isHot:true,
                     wind:'微风'
                 }
+                this.demo = this.demo.bind(this)
             }
             render(){
                 return (
-                    <h1>今天天气很{ this.state.isHot ? '炎热' : '凉爽'} </h1>
+                    <h1 onClick={this.demo}>今天天气很{ this.state.isHot ? '炎热' : '凉爽'} </h1>
                 )
+            }
+            demo(){
+                this.setState({
+                    isHot:!this.state.isHot
+                })
             }
         }
         
