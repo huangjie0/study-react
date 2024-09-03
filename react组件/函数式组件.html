@@ -19,9 +19,10 @@
      <script type="text/babel">
         //创建函数式组件
         function Demo(){
+            console.log(this);
             return <h2>我是用函数式组件</h2>
         }
-
+        
         //渲染虚拟dom到页面
         ReactDOM.render(<Demo/>,document.getElementById('test'))
        
