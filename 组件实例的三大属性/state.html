@@ -17,18 +17,24 @@
      <script src="../js/babel.min.js"></script>
 
      <script type="text/babel">
-        class Demo extends React.Component{
+        class Weather extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {
+                    isHot:true
+                }
+            }
             render(){
-                console.log(this);
                 return (
-                  <h2>类式组件</h2>
+                    <h1>今天天气很{ this.state.isHot ? '炎热' : '凉爽'} </h1>
                 )
             }
         }
         
         //渲染虚拟dom到页面
-        ReactDOM.render(<Demo/>,document.getElementById('test'))
+        ReactDOM.render(<Weather/>,document.getElementById('test'))
        
    </script>
+    
 </body>
 </html>
