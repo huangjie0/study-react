@@ -19,31 +19,18 @@
 
      <script type="text/babel">
         class Demo extends React.Component{
+            myRef = React.createRef()
             render(){
                 return (
-                    // <div>
-                    //     <input type="text" ref="input1"/>
-                    //     <button onClick={ this.showData }>点我提示左侧数据</button>
-                    //     <input type="text" ref="input2" onBlur={ this.showData2 }/>
-                    // </div>
                     <div>
-                        <input type="text" ref={ this.showInfo }/>
+                        <input type="text" ref={ this.myRef }/>
                         <button onClick={ this.showData }>点我提示左侧数据</button>
                     </div>
                 )
             }
-            // showData = () => {
-            //     alert(this.refs.input1.value);
-            // }
-            // showData2 = () => {
-            //     alert(this.refs.input2.value);
-            // }
 
             showData = () => {
-                alert(this.input1.value);
-            }
-            showInfo = (c)=>{
-                this.input1 = c 
+                console.log(this.myRef.current.value);
             }
         }
 
@@ -51,6 +38,5 @@
         ReactDOM.render(<Demo/>,document.getElementById('test'))
 
    </script>
-    
 </body>
 </html>
