@@ -18,19 +18,23 @@
      <script src="../js/prop-types.js"></script>
 
      <script type="text/babel">
-        
-        function Person(props){
-            return (
-                <ul>
-                    <li >姓名: { props.name }</li>
-                    <li>性别：{ props.sex }</li>
-                    <li>年龄：{ props.age }</li>
-                </ul>
-            )
+        class Demo extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <input type="text" ref="input1"/>
+                        <button onClick={ this.showData }>点我提示左侧数据</button>
+                        <input type="text" ref="input2"/>
+                    </div>
+                )
+            }
+            showData = () => {
+                alert(this.refs.input1.value);
+            }
         }
 
         //渲染虚拟dom到页面
-        ReactDOM.render(<Person name="huangjie" age={19} sex="男"/>,document.getElementById('test'))
+        ReactDOM.render(<Demo/>,document.getElementById('test'))
 
    </script>
     
