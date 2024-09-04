@@ -22,21 +22,29 @@
             render(){
                 return (
                     <form action="http://baidu.com" onSubmit={ this.handleSubmit }>
-                        用户名：<input type="text" name="username" ref={ this.input1 }/>
-                        密码: <input type="password" name="password" ref={ this.input2 }/>
+                        用户名：<input type="text" name="username" onChange={ this.demo }/>
+                        密码: <input type="password" name="password" onChange = { this.demo2 }/>
                         <button>登录</button>
                     </form>
                 )
             }
+            state = {
+                username:'',
+                password:''
+            }
             handleSubmit = (event)=>{
                 event.preventDefault();
-                alert(`你输入的用户名是${this.input1.value},密码是${this.input2.value}`)
+                alert(`你输入的用户名是${this.state.username},密码是${this.state.password}`)
             }
-            input1 = (c)=>{
-                this.input1 = c
+            demo = (event) => {
+                this.setState({
+                    username:event.target.value
+                })
             }
-            input2 = (c)=>{
-                this.input2 = c
+            demo2 = (event) => {
+                this.setState({
+                    password:event.target.value
+                })
             }
         }
 
