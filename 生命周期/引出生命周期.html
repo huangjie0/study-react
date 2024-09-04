@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 准备好一个容器 -->
+     <div id="test"></div>
+     <!-- 引入核心库 -->
+     <script src="../js/react.development.js"></script>
+     <!-- 引入react_dom库,用于支持操作dom -->
+     <script src="../js/react-dom.development.js"></script>
+     <!-- 将jsx转为js -->
+     <script src="../js/babel.min.js"></script>
+
+     <script type="text/babel">
+        class Left extends React.Component {
+            state = {
+                opacity:1
+            }
+            render(){
+                return (
+                    <div>
+                        <h2 style={{ opacity : this.state.opacity }}>Rect学不会怎么办？</h2>
+                        <button onClick={ this.death }>不活了</button>
+                    </div>
+                )
+            }
+            // 组件挂载完毕调用
+            componentDidMount(){
+                setInterval(()=>{
+                    let { opacity } = this.state
+                    opacity -= 0.1
+                    if(opacity <= 0) opacity = 1
+                    this.setState({ opacity })
+                },200)
+            }
+
+            death = () => {
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+        }
+
+        //渲染虚拟dom到页面
+        ReactDOM.render(<Left/>,document.getElementById('test'))
+       
+   </script>
+</body>
+</html>
