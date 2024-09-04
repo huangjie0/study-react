@@ -15,6 +15,7 @@
      <script src="../js/react-dom.development.js"></script>
      <!-- 将jsx转为js -->
      <script src="../js/babel.min.js"></script>
+     <script src="../js/prop-types.js"></script>
 
      <script type="text/babel">
         class Person extends React.Component{
@@ -24,21 +25,27 @@
                     <ul>
                         <li>姓名：{ this.props.name }</li>
                         <li>性别：{ this.props.sex }</li>
-                        <li>年龄：{ this.props.age }</li>
+                        <li>年龄：{ this.props.age + 1 }</li>
                     </ul>
                 )
             }
         }
-        const p = {
-            name:"黄杰",
-            sex:"男",
-            age:"18"
+        Person.propTypes = {
+            name: PropTypes.string
         }
 
-        //渲染虚拟dom到页面
-        ReactDOM.render(<Person {...p}/>,document.getElementById('test'))
+        // const p = {
+        //     name:"黄杰",
+        //     sex:"男",
+        //     age:"18"
+        // }
 
-        
+        // 简写形式
+        // ReactDOM.render(<Person {...p}/>,document.getElementById('test'))
+
+        //渲染虚拟dom到页面
+        ReactDOM.render(<Person name='黄杰' sex='男' age={ 8 }/>,document.getElementById('test'))
+
    </script>
     
 </body>
