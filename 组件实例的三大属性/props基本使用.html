@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 准备好一个容器 -->
+     <div id="test"></div>
+     <!-- 引入核心库 -->
+     <script src="../js/react.development.js"></script>
+     <!-- 引入react_dom库,用于支持操作dom -->
+     <script src="../js/react-dom.development.js"></script>
+     <!-- 将jsx转为js -->
+     <script src="../js/babel.min.js"></script>
+
+     <script type="text/babel">
+        class Person extends React.Component{
+            render(){
+                console.log(this);
+                return (
+                    <ul>
+                        <li>姓名：{ this.props.name }</li>
+                        <li>性别：{ this.props.sex }</li>
+                        <li>年龄：{ this.props.age }</li>
+                    </ul>
+                )
+            }
+        }
+        const p = {
+            name:"黄杰",
+            sex:"男",
+            age:"18"
+        }
+
+        //渲染虚拟dom到页面
+        ReactDOM.render(<Person {...p}/>,document.getElementById('test'))
+
+        
+   </script>
+    
+</body>
+</html>
