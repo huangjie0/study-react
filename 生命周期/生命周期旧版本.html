@@ -19,6 +19,7 @@
 
      <script type="text/babel">
         class Count extends React.Component{
+
             constructor(props){
                 console.log("constructor");
                 super(props)
@@ -38,12 +39,26 @@
                         <h2>当前求和为{this.state.count}</h2>
                         <button onClick={this.add}>点我+1</button>
                         <button onClick={this.death}>卸载组件</button>
+                        <button onClick={this.force}>不更改状态的数据，强制更新</button>
                     </div>
                 )
             }
 
             componentDidMount(){
                 console.log("componentDidMount");
+            }
+
+            shouldComponentUpdate(){
+                console.log('shouldComponentUpdate');
+                return false
+            }
+
+            componentWillUpdate(){
+                console.log("componentWillUpdate");
+            }
+
+            componentDidUpdate(){
+                console.log("componentDidUpdate");
             }
 
             add = ()=>{
@@ -56,13 +71,48 @@
                 ReactDOM.unmountComponentAtNode(document.getElementById('test'))
             }
 
+            force = ()=>{
+                this.forceUpdate()
+            }
+
             componentWillUnmount(){
                 console.log('componentWillUnmount');
+            }
+
+        }
+        
+        class A extends React.Component{
+            state  ={
+                carName:"奔驰"
+            }
+            render(){
+                return (
+                    <div>
+                        <div>我是A组件</div>
+                        <button onClick={ this.changeCar }>换车</button>
+                        <B carName = {this.state.carName} />
+                    </div>
+                   
+                )
+            }
+            changeCar = ()=>{
+                this.setState({
+                    carName:'奥迪'
+                })
+            }
+        }
+
+        class B extends React.Component{
+            render(){
+                return (
+                    <div>我是B组件，接受到的车是：{this.props.carName}</div>
+                )
             }
         }
 
         //渲染虚拟dom到页面
-        ReactDOM.render(<Count/>,document.getElementById('test'))
+        ReactDOM.render(<A/>,document.getElementById('test'))
+
 
    </script>
 </body>
