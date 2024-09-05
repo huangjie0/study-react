@@ -18,6 +18,7 @@
      <script src="../js/prop-types.js"></script>
 
      <script type="text/babel">
+        
         class Count extends React.Component{
 
             constructor(props){
@@ -103,6 +104,9 @@
         }
 
         class B extends React.Component{
+            componentWillReceiveProps(){
+                console.log('componentWillReceiveProps');
+            }
             render(){
                 return (
                     <div>我是B组件，接受到的车是：{this.props.carName}</div>
@@ -112,7 +116,6 @@
 
         //渲染虚拟dom到页面
         ReactDOM.render(<A/>,document.getElementById('test'))
-
 
    </script>
 </body>
