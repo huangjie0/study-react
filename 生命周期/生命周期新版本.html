@@ -10,9 +10,11 @@
      <!-- 准备好一个容器 -->
      <div id="test"></div>
      <!-- 引入核心库 -->
-     <script src="../js/react.development.js"></script>
+     <!-- <script src="../js/react.development.js"></script> -->
+     <script src="../js/react.development17.js"></script>
      <!-- 引入react_dom库,用于支持操作dom -->
-     <script src="../js/react-dom.development.js"></script>
+     <!-- <script src="../js/react-dom.development.js"></script> -->
+     <script src="../js/react-dom.development17.js"></script>
      <!-- 将jsx转为js -->
      <script src="../js/babel.min.js"></script>
      <script src="../js/prop-types.js"></script>
@@ -29,7 +31,7 @@
                 }
             }
 
-            componentWillMount(){
+            UNSAFE_componentWillMount(){
                 console.log("componentWillMount");
             }
 
@@ -54,7 +56,7 @@
                 return false
             }
 
-            componentWillUpdate(){
+            UNSAFE_componentWillUpdate(){
                 console.log("componentWillUpdate");
             }
 
@@ -76,7 +78,7 @@
                 this.forceUpdate()
             }
 
-            componentWillUnmount(){
+            UNSAFE_componentWillUnmount(){
                 console.log('componentWillUnmount');
             }
 
@@ -104,19 +106,17 @@
         }
 
         class B extends React.Component{
-            componentWillReceiveProps(props){
+            UNSAFE_componentWillReceiveProps(props){
                 console.log('componentWillReceiveProps');
             }
-            shouldComponentUpdate(){
-                console.log('B---shouldComponentUpdate');
-                return true
-            }
+
             render(){
                 return (
                     <div>我是B组件，接受到的车是：{this.props.carName}</div>
                 )
             }
         }
+
 
         //渲染虚拟dom到页面
         ReactDOM.render(<A/>,document.getElementById('test'))
