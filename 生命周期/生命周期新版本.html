@@ -104,16 +104,23 @@
                 })
             }
 
-            static getDerivedStateFromProps(){
-                console.log("getDerivedStateFromProps");
-                return {
-                    carName:'哈哈'
-                }
-            }
+            // static getDerivedStateFromProps(){
+            //     console.log("getDerivedStateFromProps");
+            //     return {
+            //         carName:'哈哈'
+            //     }
+            // }
+
+            // getSnapshotBeforeUpdate(prePops,preState){
+            //     console.log("getSnapshotBeforeUpdate",prePops,preState);
+            //     return null;
+            // }
+
         }
 
         class B extends React.Component{
             UNSAFE_componentWillReceiveProps(props){
+                console.log(props);
                 console.log('componentWillReceiveProps');
             }
 
