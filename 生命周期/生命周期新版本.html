@@ -103,6 +103,13 @@
                     carName:'奥迪'
                 })
             }
+
+            static getDerivedStateFromProps(){
+                console.log("getDerivedStateFromProps");
+                return {
+                    carName:'哈哈'
+                }
+            }
         }
 
         class B extends React.Component{
