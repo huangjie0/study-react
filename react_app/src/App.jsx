@@ -25,8 +25,13 @@ export default class App extends Component {
     ]
   }
   
-  addTodo = (value)=>{
-    console.log( 'app------' + value);
+  addTodo = (objValue)=>{
+    const { todos } = this.state
+    const newTodos = [objValue,...todos]
+
+    this.setState({
+      todos : newTodos
+    })
   }
 
   render(){
