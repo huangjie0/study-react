@@ -24,11 +24,16 @@ export default class App extends Component {
       }
     ]
   }
+  
+  addTodo = (value)=>{
+    console.log( 'app------' + value);
+  }
+
   render(){
     return (
       <div className="todo-container">
         <div className="todo-wrap">
-            <Header></Header>
+            <Header addTodo = { this.addTodo }></Header>
             <List todos={this.state.todos}></List>
             <Footer></Footer>
         </div>
