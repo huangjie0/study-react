@@ -12,13 +12,15 @@ export default class Header extends Component {
   }
   handleKeyUp = (event)=>{
     const { addTodo } = this.props 
-    if(event.keyCode !== 13 || event.target.value === '') return
+    if(event.keyCode !== 13 || event.target.value.trim() === '') return
 
     addTodo({
       id: uuidv4(),
       name: event.target.value,
       done: false
     })
+
+    event.target.value = ''
     
   }
 } 
