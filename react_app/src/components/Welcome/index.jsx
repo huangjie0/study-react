@@ -1,4 +1,5 @@
 import React ,{ Component } from 'react';
+import axios from 'axios';
 // import welcome from './index.module.css'
 
 export default class Welcome extends Component{
@@ -11,7 +12,10 @@ export default class Welcome extends Component{
     }
     
     getStudentData = ()=>{
-        console.log("111");
+        axios.get('https://jsonplaceholder.typicode.com/posts?userId=2').then((res)=>{
+            console.log(res);
+        },(error)=>{
+            console.log(error);
+        })
     }
-    
 }
