@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import './index.css'
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 export default class Header extends Component {
+
+  static propTypes = {
+    addTodo:PropTypes.func.isRequired
+  }
+  
   render() {
     return (
       <div className="todo-header">

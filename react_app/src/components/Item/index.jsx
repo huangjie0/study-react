@@ -14,7 +14,7 @@ export default class Item extends Component {
             <input type="checkbox" defaultChecked = { done } onChange={this.handleChange(id)}/>
             <span>{ name }</span>
         </label>
-        <button className="btn btn-danger" style= {{ display: mouse ? 'block' : 'none' }} >删除</button>
+        <button className="btn btn-danger" style= {{ display: mouse ? 'block' : 'none' }} onClick={ this.handleDelete(id) }>删除</button>
       </li>
     )
   }
@@ -24,6 +24,12 @@ export default class Item extends Component {
       this.setState({
         mouse:flag
       })
+    }
+  }
+
+  handleDelete = (id)=>{
+    return ()=>{
+      this.props.deleteList(id)
     }
   }
 
