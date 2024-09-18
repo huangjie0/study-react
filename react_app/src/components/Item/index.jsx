@@ -29,7 +29,7 @@ export default class Item extends Component {
 
   handleDelete = (id)=>{
     return ()=>{
-      this.props.deleteList(id)
+      if(window.confirm("确定删除吗？")) return this.props.deleteList(id)
     }
   }
 
