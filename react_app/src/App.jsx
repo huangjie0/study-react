@@ -35,7 +35,6 @@ export default class App extends Component {
   }
 
   changeStatus = (id,status)=>{
-    console.log(id,status);
     const { todos } = this.state;
 
     const newTodos = todos.map((item)=>{
@@ -57,13 +56,26 @@ export default class App extends Component {
     })
   }
 
+  isCheckAllList = (type)=>{
+    const { todos } = this.state;
+    
+    const newTodos = todos.map((item)=>{
+      return {...item,done:type}
+    })
+
+    this.setState({
+      todos:newTodos
+    })
+
+  }
+
   render(){
     return (
       <div className="todo-container">
         <div className="todo-wrap">
             <Header addTodo = { this.addTodo }></Header>
             <List todos={this.state.todos} changeStatus={ this.changeStatus } deleteList={ this.deleteList }></List>
-            <Footer></Footer>
+            <Footer todos={ this.state.todos } isCheckAllList={ this.isCheckAllList }></Footer>
         </div>
       </div>
     )
