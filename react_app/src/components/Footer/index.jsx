@@ -17,7 +17,7 @@ export default class Footer extends Component {
                 <input type="checkbox" checked = { doneCount === total && total !== 0 ? true : false  } onChange={ this.changeStatus }/>
             </label>
             <span>
-                <span>已完成{ doneCount }</span> / 全部{ total }
+                <span>已完成 { doneCount }</span> / 全部 { total }
             </span> 
             <button className="btn btn-danger">清除已完成任务</button>
         </div>
