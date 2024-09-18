@@ -19,11 +19,15 @@ export default class Footer extends Component {
             <span>
                 <span>已完成 { doneCount }</span> / 全部 { total }
             </span> 
-            <button className="btn btn-danger">清除已完成任务</button>
+            <button className="btn btn-danger" onClick={ this.clearDone }>清除已完成任务</button>
         </div>
     )
   }
   changeStatus = (event)=>{
     this.props.isCheckAllList(event.target.checked)
+  }
+
+  clearDone = ()=>{
+    this.props.clearDone()
   }
 }
