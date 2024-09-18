@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header';
 import List from './components/List'
 import Footer from './components/Footer';
+import Welcome from './components/Welcome';
 
 export default class App extends Component {
   state = {
@@ -36,7 +37,6 @@ export default class App extends Component {
 
   changeStatus = (id,status)=>{
     const { todos } = this.state;
-
     const newTodos = todos.map((item)=>{
       if(id === item.id) return { ...item, done:status }
       else return item
@@ -45,7 +45,7 @@ export default class App extends Component {
     this.setState({
       todos:newTodos
     })
-    
+
   }
 
   deleteList = (id)=>{
@@ -58,7 +58,6 @@ export default class App extends Component {
 
   isCheckAllList = (type)=>{
     const { todos } = this.state;
-
     const newTodos = todos.map((item)=>{
       return {...item,done:type}
     })
@@ -69,14 +68,13 @@ export default class App extends Component {
   }
 
   clearDone = ()=>{
-    const newTodos = this.state.todos.map((item)=>{
-      return { ...item , done:false}
+    const newTodos = this.state.todos.filter((item)=>{
+      return !item.done
     })
 
     this.setState({
       todos:newTodos
     })
-    
   }
 
   render(){
@@ -87,6 +85,7 @@ export default class App extends Component {
             <List todos={this.state.todos} changeStatus={ this.changeStatus } deleteList={ this.deleteList }></List>
             <Footer todos={ this.state.todos } isCheckAllList={ this.isCheckAllList } clearDone={ this.clearDone }></Footer>
         </div>
+        <Welcome></Welcome>
       </div>
     )
   }
