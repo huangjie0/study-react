@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './index.css'
+import axios from 'axios'
 
 export default class Search extends Component {
   render() {
@@ -14,6 +15,10 @@ export default class Search extends Component {
     )
   }
   search = ()=>{
-    console.log(this.inputRef.value);
+    axios.get(`https://api.github.com/search/users?q=${this.inputRef.value}`).then(res=>{
+      this.props.saveUsers(res.data.items);
+    }).catch((err)=>{
+      console.log(err);
+    })
   }
 }
