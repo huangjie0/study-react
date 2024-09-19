@@ -8,7 +8,7 @@ export default class List extends Component {
           <div className="list1">
               <div className="list2">
                   {/* <a href="">
-                      <img src="" alt=""/>
+                      <img src="" alt="avatar"/>
                   </a> */}
               </div>
           </div>
