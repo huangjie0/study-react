@@ -28,7 +28,7 @@ export default class Search extends Component {
     }).catch((err)=>{
       updateAppStatus({
         isLoading:false,
-        err
+        err:err.message
       })
     })
   }

@@ -24,9 +24,10 @@ export default class App extends Component {
               <Search updateAppStatus={ this.updateAppStatus } />
           </div>
         </div>
-        <List users = { this.state.users }/>
+        <List { ...this.state }/>
       </div>
     )
   }
+
 }
 
