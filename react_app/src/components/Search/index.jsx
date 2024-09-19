@@ -15,10 +15,21 @@ export default class Search extends Component {
     )
   }
   search = ()=>{
+    const { updateAppStatus } = this.props
+    updateAppStatus({
+      isFirst:false,
+      isLoading:true
+    })
     axios.get(`https://api.github.com/search/users?q=${this.inputRef.value}`).then(res=>{
-      this.props.saveUsers(res.data.items);
+      updateAppStatus({
+        isLoading:false,
+        users: res.data.items
+      })
     }).catch((err)=>{
-      console.log(err);
+      updateAppStatus({
+        isLoading:false,
+        err
+      })
     })
   }
 }

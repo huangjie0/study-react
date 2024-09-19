@@ -6,21 +6,22 @@ import List from './components/List';
 export default class App extends Component {
 
   state = {
-    users:[]
-  }
+    users:[],
+    isFirst: true,
+    isLoading:false,
+    err:''
+  } 
 
-  saveUsers = (value)=>{
-    this.setState({
-      users:value
-    })
-  }  
+  updateAppStatus = (value)=>{
+    this.setState(value)
+  }
 
   render(){
     return (
       <div>
         <div className="box">
           <div className="box1">
-              <Search saveUsers={ this.saveUsers } />
+              <Search updateAppStatus={ this.updateAppStatus } />
           </div>
         </div>
         <List users = { this.state.users }/>
