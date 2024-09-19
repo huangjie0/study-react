@@ -3,6 +3,7 @@ import './index.css'
 import PubSub from 'pubsub-js'
 
 export default class List extends Component {
+  
   state = {
     users:[],
     isFirst: true,
@@ -31,7 +32,7 @@ export default class List extends Component {
       </div>
     )
   }
-  
+
   componentDidMount(){
       PubSub.subscribe('message',(_,data)=>{
         this.setState(data)
