@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
 import './index.css'
-import PubSub from 'pubsub-js'
 
 export default class List extends Component {
-  state = {
-    users:[],
-    isFirst: true,
-    isLoading:false,
-    err:''
-  } 
-
   render() {
-    const { users,isFirst,isLoading,err} = this.state
+    const { users, isFirst , isLoading , err } = this.props;
     return (
       <div className="list">
         {
@@ -30,11 +22,5 @@ export default class List extends Component {
         }
       </div>
     )
-  }
-  
-  componentDidMount(){
-      PubSub.subscribe('message',(_,data)=>{
-        this.setState(data)
-      })
   }
 }

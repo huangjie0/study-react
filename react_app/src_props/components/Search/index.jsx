@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './index.css'
 import axios from 'axios'
-import PunSub from 'pubsub-js'
 
 export default class Search extends Component {
   render() {
@@ -16,11 +15,21 @@ export default class Search extends Component {
     )
   }
   search = ()=>{
-    PunSub.publish('message',{isFirst:false,isLoading:true})
+    const { updateAppStatus } = this.props
+    updateAppStatus({
+      isFirst:false,
+      isLoading:true
+    })
     axios.get(`https://api.github.com/search/users?q=${this.inputRef.value}`).then(res=>{
-      PunSub.publish('message',{isLoading:false , users:res.data.items })
+      updateAppStatus({
+        isLoading:false,
+        users: res.data.items
+      })
     }).catch((err)=>{
-      PunSub.publish('message',{isLoading:false , err:err.message })
+      updateAppStatus({
+        isLoading:false,
+        err:err.message
+      })
     })
   }
 }

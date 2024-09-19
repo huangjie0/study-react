@@ -1,0 +1,29 @@
+.list{
+    width: 1000px;
+    min-height: 310px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.list1{
+    width: 325px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+.list2{
+    width: 200px;
+    height: 150px;
+}
+
+img{
+    width: 200px;
+    height: 150px;
+}
