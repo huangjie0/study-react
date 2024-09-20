@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link,Route } from 'react-router-dom';
-import Home from './components/Home'
-import About from "./components/About";
+import { NavLink,Routes,Route } from 'react-router-dom';
+import Home from './pages/Home'
+import About from "./pages/About";
 
 export default class App extends Component {
   render() {
@@ -17,25 +17,17 @@ export default class App extends Component {
         <div className="row">
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
-              {/* <NavLink className="list-group-item" to="/about">
-              About
-            </NavLink>
-            <NavLink className="list-group-item" to="/home">
-              Home
-            </NavLink> */}
-              {/* <Link to="/about" className="list-group-item">about</Link>
-              <Link to="/home" className="list-group-item">home</Link> */}
+              <NavLink className="list-group-item" to="/about">About</NavLink>
+              <NavLink className="list-group-item" to="/home">Home</NavLink>
             </div>
           </div>
           <div className="col-xs-6">
             <div className="panel">
               <div className="panel-body">
-                {/* <Routes>
-                <Route path="/about" element={<About />}></Route>
-                <Route path="/about" element={<Home />}></Route>
-              </Routes> */}
-              {/* <Route path="/about" component={About}></Route>
-              <Route path="/home" component={Home}></Route> */}
+                  <Routes>
+                    <Route path="/about" element={<About />}></Route>
+                    <Route path="/home" element={<Home />}></Route>
+                  </Routes>
               </div>
             </div>
           </div>
