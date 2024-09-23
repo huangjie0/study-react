@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Detail from './Detail'
-import { Link, Routes , Route } from 'react-router-dom'
+import { Link, Routes , Route  } from 'react-router-dom'
 
-export default class Message extends Component {
+ class Message extends Component {
     state = {
         messageArr:[
             {
@@ -19,6 +19,12 @@ export default class Message extends Component {
             }
         ]
     }
+    replaceShow = (id,title)=>{
+        console.log(this.props);
+        return ()=>{
+          console.log(id,title);
+        }
+    }
     render() {
         return (
             <div>
@@ -33,6 +39,8 @@ export default class Message extends Component {
                                 {/* <Link to={ `detail/?id=${item.id}&title=${item.title}` }>{ item.title }</Link> */}
                                 {/* state */}
                                 <Link to="detail" state={{ id:item.id,title:item.title }}>{ item.title }</Link>
+                                <button>push查看</button>
+                                <button onClick={this.replaceShow(item.id,item.title)}>replace查看</button>
                             </li>
                         )
                     })
@@ -45,3 +53,4 @@ export default class Message extends Component {
         )
     }
 }
+export default Message;
