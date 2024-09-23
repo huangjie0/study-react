@@ -21,7 +21,7 @@ export default class Home extends Component {
             <Routes>
               <Route path='*' element={ <Navigate to="news"/>}></Route>
               <Route path="news" element={ <News/> }></Route>
-              <Route path="message" element={ <Message/> }></Route>
+              <Route path="message/*" element={ <Message/> }></Route>
             </Routes>
         </div>
     )
