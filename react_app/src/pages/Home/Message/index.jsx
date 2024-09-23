@@ -27,14 +27,19 @@ export default class Message extends Component {
                     this.state.messageArr.map((item)=>{
                         return (
                             <li key={ item.id }>
-                                <Link to={ `detail/${item.id}/${item.title}` }>{ item.title }</Link>
+                                {/* params */}
+                                {/* <Link to={ `detail/${item.id}/${item.title}` }>{ item.title }</Link> */}
+                                {/* search */}
+                                {/* <Link to={ `detail/?id=${item.id}&title=${item.title}` }>{ item.title }</Link> */}
+                                {/* state */}
+                                <Link to="detail" state={{ id:item.id,title:item.title }}>{ item.title }</Link>
                             </li>
                         )
                     })
                   }
                 </ul>
                   <Routes>
-                    <Route path='detail/:id/:title' element={ <Detail/> }></Route>
+                    <Route path='detail' element={ <Detail/> }></Route>
                   </Routes>
             </div>
         )
