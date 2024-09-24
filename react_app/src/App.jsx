@@ -3,6 +3,8 @@ import { NavLink, useRoutes} from 'react-router-dom';
 import routes from './routes'
 import Header from "./components/Header";
 import { useInRouterContext } from 'react-router-dom';
+import { Button, Flex } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 
 export default function App() {
   console.log(useInRouterContext());
@@ -34,6 +36,14 @@ export default function App() {
             </div>
           </div>
         </div>
+        <Flex gap="small" wrap>
+          <Button type="primary">Primary Button</Button>
+          <Button>Default Button</Button>
+          <Button type="dashed">Dashed Button</Button>
+          <Button type="text">Text Button</Button>
+          <Button type="link">Link Button</Button>
+          <HomeOutlined/>
+        </Flex>
       </div>
     );
 }
