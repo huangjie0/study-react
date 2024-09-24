@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class News extends Component {
-  render() {
+export default function News(){
     return (
       <ul>
         <li>news001</li>
@@ -9,5 +8,4 @@ export default class News extends Component {
         <li>news003</li>
       </ul>
     )
-  }
 }
