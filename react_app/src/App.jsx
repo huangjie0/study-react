@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink, useRoutes} from 'react-router-dom';
 import routes from './routes'
+import Header from "./components/Header";
+import { useInRouterContext } from 'react-router-dom';
 
 export default function App() {
+  console.log(useInRouterContext());
   //路由表
   const element = useRoutes(routes)
 
@@ -11,7 +14,7 @@ export default function App() {
         <div className="row">
           <div className="col-xs-offset-2 col-xs-8">
             <div className="page-header">
-              <h2>React Router Demo</h2>
+              <Header/>
             </div>
           </div>
         </div>

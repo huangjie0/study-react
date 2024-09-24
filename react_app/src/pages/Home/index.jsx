@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import { Navigate , NavLink , Outlet } from 'react-router-dom'
+import { Navigate , NavLink , Outlet , useOutlet } from 'react-router-dom'
 
 export default function Home(){
   const [sum,setSum] = useState(1)
@@ -7,7 +7,7 @@ export default function Home(){
   const changVal = ()=>{
     setSum(2)
   }
-
+  console.log(useOutlet());
   return (
       <div>
           <h3>我是Home的内容</h3>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet , useNavigate } from 'react-router-dom';
 
  export default function Message(){
     const [messages] = useState([
@@ -19,6 +19,20 @@ import { Link, Outlet } from 'react-router-dom';
             content:"结婚后很快就会"
         }
     ])
+
+    const navigate = useNavigate()
+
+    const showDetail = (id,title,content)=>{
+        return ()=>{
+            navigate('detail',{
+                state:{
+                    id,
+                    title,
+                    content
+                }
+            })
+        }
+    } 
         return (
             <div>
                 <ul>
@@ -29,6 +43,7 @@ import { Link, Outlet } from 'react-router-dom';
                                 {/* <Link to={`detail/${item.id}/${item.title}/${item.content}`}>{item.title}</Link> */}
                                 {/* <Link to={`detail?id=${item.id}&title=${item.title}&content=${item.content}`}>{item.title}</Link> */}
                                 <Link to='detail' state={{ id:item.id,title:item.title,content:item.content }}>{item.title}</Link>
+                                <button onClick={ showDetail(item.id,item.title,item.content) }>查看详情</button>
                             </li>
                         )
                     })
