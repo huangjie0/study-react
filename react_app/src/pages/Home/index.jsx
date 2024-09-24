@@ -1,29 +1,18 @@
-import React, { Component } from 'react'
-import { NavLink,Routes,Route,Navigate} from 'react-router-dom'
-import News from './News'
-import Message from './Message'
+import React,{ useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
-export default class Home extends Component {
-  render() {
-    return (
-        <div>
-            <h3>我是Home的内容</h3>
-            <div>
-              <ul className='nav nav-tabs'>
-                <li>
-                  <NavLink to='news' className="list-group-item">News</NavLink>
-                </li>
-                <li>
-                  <NavLink to='message' className="list-group-item">Message</NavLink>
-                </li>
-              </ul>
-            </div>
-            <Routes>
-              <Route path='*' element={ <Navigate to="news"/>}></Route>
-              <Route path="news" element={ <News/> }></Route>
-              <Route path="message/*" element={ <Message/> }></Route>
-            </Routes>
-        </div>
-    )
+export default function Home(){
+  const [sum,setSum] = useState(1)
+
+  const changVal = ()=>{
+    setSum(2)
   }
+
+  return (
+      <div>
+          <h3>我是Home的内容</h3>
+          { sum === 2 ? <Navigate to="/about"/> : <h4>当前的sum值为{ sum }</h4>}
+          <button onClick={ changVal }>点我将sum值变成2</button>
+      </div>
+  )
 }

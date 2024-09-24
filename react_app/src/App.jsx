@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink,Routes,Route,Navigate } from 'react-router-dom';
 import Home from './pages/Home'
 import About from "./pages/About"
 
-export default class App extends Component {
-  render() {
+export default function App() {
     return (
       <div>
         <div className="row">
@@ -25,8 +24,8 @@ export default class App extends Component {
             <div className="panel">
               <div className="panel-body">
                   <Routes>
-                    <Route path="*" element={ <Navigate to="/about"/>}></Route>
-                    <Route path="/about" element={ <About/> }></Route>
+                    <Route path="/" element={ <Navigate to="/about"/>}></Route>
+                    <Route path="/about"element={ <About/> }></Route>
                     <Route path="/home/*" element={ <Home/> }></Route>
                   </Routes>
               </div>
@@ -35,5 +34,4 @@ export default class App extends Component {
         </div>
       </div>
     );
-  }
 }
