@@ -35,7 +35,12 @@ export default class Count extends Component {
     }
 
     asynchronous = ()=>{
-        
+        const { number,count } = this.state
+        setTimeout(()=>{
+            this.setState({
+                count:number + count 
+            })
+        },500)
     }
 
     render() {
