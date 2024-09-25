@@ -4,9 +4,13 @@ import store from '../redux/store'
 
 export default class Count extends Component {
     state = {
-        number:1,
-        count:0
+        number:1
     }
+    // componentDidMount(){
+    //     store.subscribe(()=>{
+    //         this.setState({})
+    //     })
+    // }
     handleChange = (value)=>{
         this.setState({
             number:value
@@ -14,38 +18,41 @@ export default class Count extends Component {
     }
     // 加
     add = ()=>{
-        const { number,count } = this.state
-        this.setState({
-            count:number + count
+        const { number } = this.state
+        store.dispatch({
+            type:'add',
+            data:number
         })
     }
     // 减
     subtraction = ()=>{
-        const { number,count } = this.state
-        this.setState({
-            count:count - number
+        const { number } = this.state
+        store.dispatch({
+            type:'subtraction',
+            data:number
         })
     }
     // 奇数就加
     odd = ()=>{
-        const { number,count } = this.state
-        if(count % 2 === 0) return
-        this.setState({
-            count: number + count
+        const { number } = this.state
+        if(store.getState() % 2 === 0) return
+        store.dispatch({
+            type:'add',
+            data:number
         })
     }
 
     asynchronous = ()=>{
-        const { number,count } = this.state
+        const { number } = this.state
         setTimeout(()=>{
-            this.setState({
-                count:number + count 
+            store.dispatch({
+                type:'add',
+                data:number
             })
         },500)
     }
 
     render() {
-        const { count } = this.state
         return (
         <div>
             <h1>当前求和为：{ store.getState() }</h1>
