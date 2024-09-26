@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useRoutes,useInRouterContext} from 'react-router-dom';
 import routes from './routes'
 import Header from "./components/Header";
-import Count from "./components/Count";
+import Count from "./containers/Count";
 import { Button, Flex , Divider } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 
@@ -44,7 +44,7 @@ export default function App() {
           <Button type="link">Link Button</Button>
           <HomeOutlined/>
         </Flex>
-        <Divider />
+        <Divider/>
         <Count/>
       </div>
     );

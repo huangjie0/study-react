@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 import { Select } from 'antd'
-import store from '../redux/store'
 
 export default class Count extends Component {
     state = {
         number:1
     }
-    // componentDidMount(){
-    //     store.subscribe(()=>{
-    //         this.setState({})
-    //     })
-    // }
     handleChange = (value)=>{
         this.setState({
             number:value
@@ -19,43 +13,29 @@ export default class Count extends Component {
     // 加
     add = ()=>{
         const { number } = this.state
-        store.dispatch({
-            type:'add',
-            data:number
-        })
+        this.props.add(number)
     }
     // 减
     subtraction = ()=>{
         const { number } = this.state
-        store.dispatch({
-            type:'subtraction',
-            data:number
-        })
+        this.props.subtraction(number)
     }
     // 奇数就加
     odd = ()=>{
         const { number } = this.state
-        if(store.getState() % 2 === 0) return
-        store.dispatch({
-            type:'add',
-            data:number
-        })
+        if(this.props.count % 2 ===0 ) return
+        this.props.add(number)
     }
 
     asynchronous = ()=>{
         const { number } = this.state
-        setTimeout(()=>{
-            store.dispatch({
-                type:'add',
-                data:number
-            })
-        },500)
+        this.props.asyncAdd(number,500)
     }
 
     render() {
         return (
         <div>
-            <h1>当前求和为：{ store.getState() }</h1>
+            <h1>当前求和为：{ this.props.count }</h1>
             <Select
                 defaultValue="1"
                 style={{
