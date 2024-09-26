@@ -30,12 +30,13 @@ class Person extends Component {
                 })
             }
         </ul>
+        <h2>上方的求和值为{ this.props.sum }</h2>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({personList:state.showPerson})
+const mapStateToProps = state => ({personList:state.showPerson,sum:state.summation})
 const mapDispatchToProps = dispatch => (
     {
         addPersonObj:(personObj)=>{

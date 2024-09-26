@@ -38,6 +38,16 @@ class Count extends Component {
         return (
         <div>
             <h1>当前求和为：{ this.props.count }</h1>
+            <h2>下面的人为：</h2>
+            <ul>
+                {
+                this.props.personList.map((item)=>{
+                    return (
+                        <li> 人名：{item.name} 岁数：{ item.age } </li>
+                    )
+                })
+                } 
+            </ul>
             <Select
                 defaultValue="1"
                 style={{
@@ -68,7 +78,7 @@ class Count extends Component {
     }
 }
 
-const mapStateToProps = state => ({count:state.summation})
+const mapStateToProps = state => ({count:state.summation,personList:state.showPerson})
 const mapDispatchToProps = dispatch => (
     {
         add:(number)=>{
