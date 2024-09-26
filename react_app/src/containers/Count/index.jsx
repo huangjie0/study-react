@@ -10,7 +10,15 @@ class Count extends Component {
     handleChange = (value)=>{
         this.setState({
             number:value
+        },()=>{
+            console.log(this.state.number);
         })
+
+        // this.setState((_state,_props)=>{
+        //     return {
+        //         number:value
+        //     }
+        // })
     }
     // 加
     add = ()=>{
@@ -43,7 +51,7 @@ class Count extends Component {
                 {
                 this.props.personList.map((item)=>{
                     return (
-                        <li> 人名：{item.name} 岁数：{ item.age } </li>
+                        <li key={item.id}> 人名：{item.name} 岁数：{ item.age } </li>
                     )
                 })
                 } 
