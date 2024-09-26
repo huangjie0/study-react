@@ -1,4 +1,4 @@
-import { ADD , SUBTRACTION } from './constant'
+import { ADD , SUBTRACTION } from '../constant'
 
 const initState = 0
 function countReducer(preState=initState,action){

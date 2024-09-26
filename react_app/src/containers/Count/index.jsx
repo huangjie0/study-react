@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Select } from 'antd'
 import { connect } from 'react-redux';
-import { createAddAction , createSubtractionAction , createAsyncAddAction } from '../../redux/count_action'
+import { createAddAction , createSubtractionAction , createAsyncAddAction } from '../../redux/actions/count'
 
 class Count extends Component {
     state = {
@@ -68,7 +68,7 @@ class Count extends Component {
     }
 }
 
-const mapStateToProps = state => ({count:state})
+const mapStateToProps = state => ({count:state.summation})
 const mapDispatchToProps = dispatch => (
     {
         add:(number)=>{

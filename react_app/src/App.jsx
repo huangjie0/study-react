@@ -3,6 +3,7 @@ import { NavLink, useRoutes,useInRouterContext} from 'react-router-dom';
 import routes from './routes'
 import Header from "./components/Header";
 import Count from "./containers/Count";
+import Person from "./containers/Person"
 import { Button, Flex , Divider } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 
@@ -46,6 +47,7 @@ export default function App() {
         </Flex>
         <Divider/>
         <Count/>
+        <Person/>
       </div>
     );
 }

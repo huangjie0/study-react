@@ -1,5 +1,5 @@
-import { ADD, SUBTRACTION } from './constant'
-import store from './store'
+import { ADD, SUBTRACTION } from './../constant'
+import store from '../store'
 
 export function createAddAction(data){
     return {
