@@ -4,6 +4,10 @@ const MyContext = createContext();
 const { Provider,Consumer } = MyContext;
 
 export default class Context extends PureComponent {
+    
+    static getDerivedStateFromError(error){
+        console.log(error);
+    }
     state = {
         username:'Tom',
         age:19
