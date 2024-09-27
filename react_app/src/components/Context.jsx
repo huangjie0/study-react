@@ -1,9 +1,9 @@
-import React, { Component,createContext } from 'react'
+import React, { createContext ,PureComponent} from 'react'
 
 const MyContext = createContext();
 const { Provider,Consumer } = MyContext;
 
-export default class Context extends Component {
+export default class Context extends PureComponent {
     state = {
         username:'Tom',
         age:19
@@ -23,7 +23,7 @@ export default class Context extends Component {
   }
 }
 
-class B extends Component{
+class B extends PureComponent{
     static contextType = MyContext
     render(){
         return(
