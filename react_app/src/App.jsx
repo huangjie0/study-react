@@ -4,6 +4,8 @@ import routes from './routes'
 import Header from "./components/Header";
 import Count from "./containers/Count";
 import Person from "./containers/Person"
+import Weather from "./components/Weather";
+import Context from "./components/Context";
 import { Button, Flex , Divider } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 
@@ -48,6 +50,8 @@ export default function App() {
         <Divider/>
         <Count/>
         <Person/>
+        <Weather/>
+        <Context/>
       </div>
     );
 }
